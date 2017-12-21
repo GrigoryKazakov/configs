@@ -10,6 +10,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
 
 Plug 'mxw/vim-jsx'
+Plug 'digitaltoad/vim-pug'
 Plug 'isRuslan/vim-es6'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-surround'
@@ -35,3 +36,5 @@ map <Leader> <Plug>(easymotion-prefix)
 let g:jsx_ext_required = 0 " jsx in .js
 set softtabstop=4
 set shiftwidth=4
+
+set term=screen-256color
