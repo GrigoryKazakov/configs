@@ -1,17 +1,46 @@
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.local/share/nvim/plugged')
 
-" Plug to install
-Plug 'damage220/solas.vim'
-Plug 'altercation/vim-colors-solarized'
+" Colors
+" Plug 'altercation/vim-colors-solarized'
+" Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
+Plug 'ayu-theme/ayu-vim'
+
+" Buffers
+Plug 'jlanzarotta/bufexplorer'
+
+" Snippets
+Plug 'SirVer/ultisnips'
+
+" Airline
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'morhetz/gruvbox'
 Plug 'jiangmiao/auto-pairs'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
 
-Plug 'mxw/vim-jsx'
-Plug 'digitaltoad/vim-pug'
+" Autocomplete
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+
+" for eslint
+Plug 'w0rp/ale'
+
+" javascript
+Plug 'pangloss/vim-javascript'
 Plug 'isRuslan/vim-es6'
+
+" coffee
+Plug 'kchmck/vim-coffee-script'
+
+" Commenst
+Plug 'tpope/vim-commentary'
+
+" Scss
+Plug 'tpope/vim-haml'
+
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -24,17 +53,35 @@ call plug#end()
 
 syntax on
 set number
-colorscheme gruvbox 
+colorscheme onedark
 set background=dark
 
-" Mappings
+"set termguicolors     
+"let ayucolor="light"
+"colorscheme ayu
+
+" Mapping
 let g:mapleader=','
 imap jj <Esc>
-map <C-n> :NERDTreeToggle<CR>
+
+" NERDTree
+nnoremap <Leader>d :NERDTreeToggle<CR>
+nnoremap <C-\> :NERDTreeFind<CR>
+
 map <Leader> <Plug>(easymotion-prefix)
 
-let g:jsx_ext_required = 0 " jsx in .js
-set softtabstop=4
-set shiftwidth=4
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
-set term=screen-256color
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+set list
+set nowrap
+
+let g:ctrlp_custom_ignore = 'node_modules'
+let g:deoplete#enable_at_startup = 1
+let g:neosnippet#enable_completed_snippet = 1
+
+let g:ale_fixers = ['eslint']
