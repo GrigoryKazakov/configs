@@ -2,7 +2,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Colors
 " Plug 'altercation/vim-colors-solarized'
-" Plug 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
 Plug 'ayu-theme/ayu-vim'
 
@@ -48,19 +48,20 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-
+Plug 'terryma/vim-multiple-cursors'
 
 " Initialize plugin system
 call plug#end()
 
 syntax on
 set number
-colorscheme onedark
-set background=dark
+" set background=dark
+" colorscheme onedark
 
-"set termguicolors     
-"let ayucolor="light"
-"colorscheme ayu
+set termguicolors
+let ayucolor="mirage"
+colorscheme ayu
+let g:airline_theme="ayu_mirage"
 
 " Mapping
 let g:mapleader=','
@@ -81,7 +82,7 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
-let g:ctrlp_custom_ignore = 'node_modules'
+"let g:ctrlp_custom_ignore = 'node_modules'
 let g:deoplete#enable_at_startup = 1
 let g:neosnippet#enable_completed_snippet = 1
 
