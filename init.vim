@@ -78,6 +78,9 @@ omap <leader><tab> <plug>(fzf-maps-o)
 
 map <Leader> <Plug>(easymotion-prefix)
 
+:nmap cp :let @" = expand("%")<CR>
+:nmap cn :let @" = expand("%:t")<CR>
+
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
