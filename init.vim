@@ -95,6 +95,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 "let g:ctrlp_custom_ignore = 'node_modules'
 let g:deoplete#enable_at_startup = 1
 let g:neosnippet#enable_completed_snippet = 1
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 
 let g:ale_fixers = ['eslint']
 
