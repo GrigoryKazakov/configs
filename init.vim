@@ -5,6 +5,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
 Plug 'ayu-theme/ayu-vim'
+Plug 'endel/vim-github-colorscheme'
+Plug 'ap/vim-css-color'
 
 " Buffers
 Plug 'jlanzarotta/bufexplorer'
@@ -20,6 +22,9 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
+" Ag serch
+Plug 'rking/ag.vim'
 
 Plug 'easymotion/vim-easymotion'
 
@@ -55,13 +60,15 @@ call plug#end()
 
 syntax on
 set number
-" set background=dark
-" colorscheme onedark
+"set background = "darken"
+colorscheme github
+let g:airline_theme="atomic"
 
-set termguicolors
-let ayucolor="mirage"
-colorscheme ayu
-let g:airline_theme="ayu_mirage"
+" set termguicolors
+" let ayucolor="mirage"
+" colorscheme ayu
+" let g:airline_theme="ayu_mirage"
+
 
 " Mapping
 let g:mapleader=','
@@ -71,7 +78,7 @@ imap jj <Esc>
 nnoremap <Leader>d :NERDTreeToggle<CR>
 nnoremap <C-\> :NERDTreeFind<CR>
 
-nnoremap <leader>ff :Files<CR>
+nnoremap <leader>\ :Files<CR>
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
