@@ -1,15 +1,19 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
-" Colors
-" Plug 'altercation/vim-colors-solarized'
+" colorschemes
+Plug 'altercation/vim-colors-solarized'
 Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
+Plug 'rakr/vim-one'
 Plug 'ayu-theme/ayu-vim'
 Plug 'endel/vim-github-colorscheme'
 Plug 'ap/vim-css-color'
 
 " Buffers
 Plug 'jlanzarotta/bufexplorer'
+
+" Preview image (dep - pip install Pillow)
+Plug 'ashisha/image.vim'
 
 " Snippets
 Plug 'SirVer/ultisnips'
@@ -38,6 +42,7 @@ Plug 'w0rp/ale'
 " javascript
 Plug 'pangloss/vim-javascript'
 Plug 'isRuslan/vim-es6'
+Plug 'mxw/vim-jsx'
 
 " coffee
 Plug 'kchmck/vim-coffee-script'
@@ -58,21 +63,36 @@ Plug 'terryma/vim-multiple-cursors'
 " Initialize plugin system
 call plug#end()
 
-syntax on
+syntax enable
 set number
-"set background = "darken"
+
+" colorscheme solarized
+" set background=light
+" colorscheme solarized
+
+" colorscheme github
 colorscheme github
 let g:airline_theme="atomic"
+" adaptive easymotion
+hi EasyMotionShade  ctermbg=none ctermfg=blue
+hi EasyMotionTarget ctermbg=none ctermfg=darkred
+hi EasyMotionTarget2First ctermbg=none ctermfg=darkred
+hi EasyMotionTarget2Second ctermbg=none ctermfg=darkred
 
+" colorscheme ayu
 " set termguicolors
-" let ayucolor="mirage"
+" let ayucolor="light"
 " colorscheme ayu
 " let g:airline_theme="ayu_mirage"
 
+" colorscheme one
+" colorscheme one
+" set background=light
+" let g:airline_theme='one'
 
 " Mapping
 let g:mapleader=','
-imap jj <Esc>
+" imap jj <Esc>
 
 " NERDTree
 nnoremap <Leader>d :NERDTreeToggle<CR>
@@ -99,6 +119,7 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 
 let g:ale_fixers = ['eslint']
 
+set listchars=trail:·
 set softtabstop=2
 set shiftwidth=2
 set expandtab
