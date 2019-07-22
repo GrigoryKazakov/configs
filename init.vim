@@ -12,6 +12,10 @@ Plug 'ap/vim-css-color'
 " Buffers
 Plug 'jlanzarotta/bufexplorer'
 
+" Code spell
+" Plug 'shinglyu/vim-codespell'
+
+
 " Preview image (dep - pip install Pillow)
 Plug 'ashisha/image.vim'
 
@@ -67,12 +71,12 @@ syntax enable
 set number
 
 " colorscheme solarized
-" set background=light
-" colorscheme solarized
+set background=light
+colorscheme solarized
 
 " colorscheme github
-colorscheme github
-let g:airline_theme="atomic"
+" let g:airline_theme="atomic"
+
 " adaptive easymotion
 hi EasyMotionShade  ctermbg=none ctermfg=blue
 hi EasyMotionTarget ctermbg=none ctermfg=darkred
@@ -92,7 +96,6 @@ hi EasyMotionTarget2Second ctermbg=none ctermfg=darkred
 
 " Mapping
 let g:mapleader=','
-" imap jj <Esc>
 
 " NERDTree
 nnoremap <Leader>d :NERDTreeToggle<CR>
@@ -115,10 +118,11 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 "let g:ctrlp_custom_ignore = 'node_modules'
 let g:deoplete#enable_at_startup = 1
 let g:neosnippet#enable_completed_snippet = 1
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
+let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/UltiSnips"]
 
-let g:ale_fixers = ['eslint']
+let g:ale_fixers = ["eslint"]
 
+set scrolloff=3
 set listchars=trail:·
 set softtabstop=2
 set shiftwidth=2
