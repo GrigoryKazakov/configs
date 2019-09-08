@@ -69,6 +69,7 @@ call plug#end()
 
 syntax enable
 set number
+set relativenumber
 
 " colorscheme solarized
 set background=light
