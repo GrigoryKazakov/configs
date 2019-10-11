@@ -130,3 +130,6 @@ set shiftwidth=2
 set expandtab
 set list
 set nowrap
+set cursorline
+set ttyfast
+set lazyredraw
