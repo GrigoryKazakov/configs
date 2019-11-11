@@ -1,5 +1,5 @@
 """
-""" general
+""" GENERAL
 """
 
 set encoding=utf-8
@@ -8,54 +8,56 @@ set ttyfast
 set lazyredraw
 
 """
-""" plugins
+""" PLUGINS
 """
 
 call plug#begin('~/.local/share/nvim/plugged')
-plug 'altercation/vim-colors-solarized'
+Plug 'altercation/vim-colors-solarized'
 
-plug 'ap/vim-css-color'
+Plug 'ap/vim-css-color'
 
-plug 'jlanzarotta/bufexplorer'
+Plug 'jlanzarotta/bufexplorer'
 
-plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-plug 'sirver/ultisnips'
+Plug 'SirVer/ultisnips'
 
-plug 'vim-airline/vim-airline'
-plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
-plug 'scrooloose/nerdtree', { 'on': 'nerdtreetoggle' }
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
-plug 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs'
 
-plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
-plug 'rking/ag.vim'
+Plug 'rking/ag.vim'
 
-plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript'
 
-plug 'kchmck/vim-coffee-script'
+Plug 'kchmck/vim-coffee-script'
 
-plug 'tpope/vim-commentary'
+Plug 'maxmellon/vim-jsx-pretty'
 
-plug 'mattn/emmet-vim'
+Plug 'tpope/vim-commentary'
 
-plug 'tpope/vim-surround'
+Plug 'mattn/emmet-vim'
 
-plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
 
-plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
 
-plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 
-plug 'terryma/vim-multiple-cursors'
+Plug 'airblade/vim-gitgutter'
+
+Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
 
 """
-""" visual
+""" VISUAL
 """
 
 syntax on
@@ -74,29 +76,29 @@ set background=light
 colorscheme solarized
 
 """
-""" mappings
+""" MAPPINGS
 """
 
 let g:mapleader=','
 
-:nmap cp :let @" = expand("%")<cr>
-:nmap cn :let @" = expand("%:t")<cr>
+:nmap cp :let @" = expand("%")<CR>
+:nmap cn :let @" = expand("%:t")<CR>
 
 """
-""" plugin configs
+""" PLUGIN CONFIGS
 """
 
-nnoremap <leader>d :nerdtreetoggle<cr>
-nnoremap <c-\> :nerdtreefind<cr>
-nnoremap <leader>\ :files<cr>
+nnoremap <Leader>d :NERDTreeToggle<CR>
+nnoremap <C-\> :NERDTreeFind<CR>
+nnoremap <leader>\ :Files<CR>
 
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
 
-let g:ultisnipsexpandtrigger="<tab>"
-let g:ultisnipsjumpforwardtrigger="<c-b>"
-let g:ultisnipsjumpbackwardtrigger="<c-z>"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 let g:neosnippet#enable_completed_snippet = 1
-let g:ultisnipssnippetdirectories=[$home."/.vim/ultisnips"]
+let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/UltiSnips"]
