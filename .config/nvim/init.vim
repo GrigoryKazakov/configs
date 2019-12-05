@@ -94,6 +94,8 @@ nnoremap <leader>\ :Files<CR>
 
 nnoremap <leader>f :CocCommand prettier.formatFile<CR>
 
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
@@ -104,8 +106,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 let g:neosnippet#enable_completed_snippet = 1
 let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/UltiSnips"]
-
-nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
