@@ -34,11 +34,12 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'rking/ag.vim'
 
-Plug 'pangloss/vim-javascript'
-
 Plug 'kchmck/vim-coffee-script'
 
+Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
+" ts
+Plug 'HerringtonDarkholme/yats.vim'
 
 Plug 'tpope/vim-commentary'
 
@@ -99,6 +100,9 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
+
+nnoremap <Leader>[ :bprev<cr>
+nnoremap <Leader>] :bnext<cr>
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
