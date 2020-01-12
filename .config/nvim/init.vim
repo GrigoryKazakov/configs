@@ -1,89 +1,126 @@
 """
-""" GENERAL
-"""
-
-set encoding=utf-8
-set fileencoding=utf-8
-set ttyfast
-set lazyredraw
-
-"""
 """ PLUGINS
 """
 
 call plug#begin('~/.local/share/nvim/plugged')
+
+" Completion
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --ts-completer' }
+
+" Linting engine
+Plug 'w0rp/ale'
+
+" Coffee support
+Plug 'kchmck/vim-coffee-script'
+
+" JS support
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
+
+" TS support
+Plug 'HerringtonDarkholme/yats.vim'
+
+" Solarized colorscheme
 Plug 'altercation/vim-colors-solarized'
 
+" CSS color name highlighter
 Plug 'ap/vim-css-color'
 
+" Bufexplorer
 Plug 'jlanzarotta/bufexplorer'
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
+" Ultisnips
 Plug 'SirVer/ultisnips'
 
+" Vim airline
 Plug 'vim-airline/vim-airline'
+
+" Airline themes
 Plug 'vim-airline/vim-airline-themes'
 
+" NERDTree
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
+" Insert or delete brackets, parens, quotes in pair
 Plug 'jiangmiao/auto-pairs'
 
+" FuzzyFind
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
+" Silver searcher.
 Plug 'rking/ag.vim'
 
-Plug 'kchmck/vim-coffee-script'
-
-Plug 'yuezk/vim-js'
-Plug 'maxmellon/vim-jsx-pretty'
-" ts
-Plug 'HerringtonDarkholme/yats.vim'
-
+" Commentary
 Plug 'tpope/vim-commentary'
 
+" Emmet
 Plug 'mattn/emmet-vim'
 
+" Surround
 Plug 'tpope/vim-surround'
 
+" Vim repeat
 Plug 'tpope/vim-repeat'
 
+" Fugitive
 Plug 'tpope/vim-fugitive'
 
+" Gitgutter
 Plug 'airblade/vim-gitgutter'
 
+" Multiple cursors
 Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
 
 """
-""" VISUAL
+""" GENERAL
 """
-
 syntax on
+
+set encoding=utf-8
+set fileencoding=utf-8
+
+set ttyfast
+set lazyredraw
+
 set scrolloff=3
-set listchars=trail:·
 set softtabstop=2
 set shiftwidth=2
 set expandtab
+
+set listchars=tab:¦\ ,trail:⋅,extends:❯,precedes:❮
+
 set list
 set nowrap
 set cursorline
 set number
 set relativenumber
 
+set t_Co=256
+
 set background=light
 colorscheme solarized
+
+set history=1000
 
 """
 """ MAPPINGS
 """
 
+" set leader key
 let g:mapleader=','
 
+" copy paths of file
 :nmap cp :let @" = expand("%")<CR>
 :nmap cn :let @" = expand("%:t")<CR>
+
+" YouCompleteMeMappings
+nnoremap <Leader>gt :YcmCompleter GetType<CR>
+nnoremap <Leader>dl :YcmCompleter GoToDeclaration<CR>
+nnoremap <Leader>df :YcmCompleter GoToDefinition<CR>
+nnoremap <Leader># :YcmCompleter GoToReferences<CR>
 
 """
 """ PLUGIN CONFIGS
@@ -93,16 +130,12 @@ nnoremap <Leader>d :NERDTreeToggle<CR>
 nnoremap <C-\> :NERDTreeFind<CR>
 nnoremap <leader>\ :Files<CR>
 
-nnoremap <leader>f :CocCommand prettier.formatFile<CR>
-
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
 
-nnoremap <Leader>[ :bprev<cr>
-nnoremap <Leader>] :bnext<cr>
+" ycm auto-close the preview window
+let g:ycm_autoclose_preview_window_after_completion = 1
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
@@ -111,10 +144,12 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:neosnippet#enable_completed_snippet = 1
 let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/UltiSnips"]
 
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '⚠'
+
+" fixer configurations
+let g:ale_fixers = {
+\   'javascript': ['prettier'],
+\   'typescript': ['prettier'],
+\   'css': ['prettier'],
+\}
