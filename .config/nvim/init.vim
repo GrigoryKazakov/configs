@@ -140,7 +140,10 @@ omap <leader><tab> <plug>(fzf-maps-o)
 " ycm auto-close the preview window
 let g:ycm_autoclose_preview_window_after_completion = 1
 " remove <tab>
-let g:ycm_key_list_select_completion = ['<Down>']
+let g:ycm_key_list_select_completion = []
+let g:ycm_semantic_triggers =  {
+  \   'css': ['re!^\s{2}', 're!:\s+'],
+  \ }
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
@@ -160,3 +163,5 @@ let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
 \   'css': ['prettier'],
 \}
+
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
