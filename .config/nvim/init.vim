@@ -20,6 +20,9 @@ Plug 'maxmellon/vim-jsx-pretty'
 " TS support
 Plug 'HerringtonDarkholme/yats.vim'
 
+" Pug support
+Plug 'digitaltoad/vim-pug'
+
 " Solarized colorscheme
 Plug 'altercation/vim-colors-solarized'
 
@@ -128,7 +131,7 @@ nnoremap <Leader># :YcmCompleter GoToReferences<CR>
 
 nnoremap <Leader>d :NERDTreeToggle<CR>
 nnoremap <C-\> :NERDTreeFind<CR>
-nnoremap <leader>\ :Files<CR>
+nnoremap <leader>\ :GFiles<CR>
 
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
@@ -147,9 +150,10 @@ let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/UltiSnips"]
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
 
+let g:ale_javascript_prettier_use_local_config = 1
+
 " fixer configurations
 let g:ale_fixers = {
-\   'javascript': ['prettier'],
-\   'typescript': ['prettier'],
+\   'javascript': ['prettier', 'eslint'],
 \   'css': ['prettier'],
 \}
