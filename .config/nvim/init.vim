@@ -139,9 +139,12 @@ omap <leader><tab> <plug>(fzf-maps-o)
 
 " ycm auto-close the preview window
 let g:ycm_autoclose_preview_window_after_completion = 1
+" remove <tab>
+let g:ycm_key_list_select_completion = ['<Down>']
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
+
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 let g:neosnippet#enable_completed_snippet = 1
