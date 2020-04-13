@@ -29,8 +29,10 @@ Plug 'leafgarland/typescript-vim'
 Plug 'kchmck/vim-coffee-script'
 
 " Javascript support
-Plug 'yuezk/vim-js'
-Plug 'maxmellon/vim-jsx-pretty'
+Plug 'pangloss/vim-javascript'
+
+" jsx support
+Plug 'peitalin/vim-jsx-typescript'
 
 " Pug support
 Plug 'digitaltoad/vim-pug'
@@ -105,8 +107,6 @@ set softtabstop=2
 set shiftwidth=2
 set expandtab
 
-set listchars=tab:¦\ ,trail:⋅,extends:❯,precedes:❮
-
 set list
 set nowrap
 set cursorline
@@ -119,6 +119,12 @@ set background=light
 colorscheme solarized
 
 set history=1000
+set updatetime=50
+
+set fillchars+=vert:\|
+set listchars=tab:¦\ ,trail:⋅,extends:❯,precedes:❮
+
+highlight VertSplit ctermbg=NONE ctermfg=NONE
 
 """
 """ MAPPINGS
@@ -132,18 +138,18 @@ let g:mapleader=" "
 :nmap cn :let @" = expand("%:t")<CR>
 
 " YouCompleteMeMappings
-nnoremap <Leader>gt :YcmCompleter GetType<CR>
-nnoremap <Leader>dl :YcmCompleter GoToDeclaration<CR>
+nnoremap <Leader>dt :YcmCompleter GetType<CR>
+nnoremap <Leader>dl :YcmCompleter GoTo<CR>
 nnoremap <Leader>df :YcmCompleter GoToDefinition<CR>
-nnoremap <Leader># :YcmCompleter GoToReferences<CR>
+nnoremap <Leader>dr :YcmCompleter GoToReferences<CR>
 
 """
 """ PLUGIN CONFIGS
 """
 
-nnoremap <Leader>d :NERDTreeToggle<CR>
+nnoremap <Leader>N :NERDTreeToggle<CR>
 nnoremap <C-\> :NERDTreeFind<CR>
-nnoremap <leader>\ :GFiles<CR>
+nnoremap <leader>\ :Files<CR>
 
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
@@ -178,6 +184,19 @@ let g:ale_fixers = {
 \   'typescriptreact': ['prettier', 'eslint'],
 \   'css': ['prettier'],
 \}
+
+let g:user_emmet_settings = {
+\  'javascript' : {
+\      'extends' : 'jsx',
+\  },
+\  'typescript' : {
+\      'extends' : 'tsx',
+\  },
+\}
+
+if (executable('ag'))
+    let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
+endif
 
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
