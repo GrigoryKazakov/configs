@@ -4,6 +4,18 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
 
+" Spell checker
+Plug 'kamykn/spelunker.vim'
+
+" Popup for spell checker
+Plug 'kamykn/popup-menu.nvim'
+
+" Markdown
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
+
+" Vue
+Plug 'leafoftree/vim-vue-plugin'
+
 " Completion
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --ts-completer' }
 
@@ -113,7 +125,7 @@ set history=1000
 """
 
 " set leader key
-let g:mapleader=','
+let g:mapleader=" "
 
 " copy paths of file
 :nmap cp :let @" = expand("%")<CR>
@@ -143,6 +155,7 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_key_list_select_completion = []
 let g:ycm_semantic_triggers =  {
   \   'css': ['re!^\s{2}', 're!:\s+'],
+  \   'scss': ['re!^\s{2}', 're!:\s+'],
   \ }
 
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -161,7 +174,15 @@ let g:ale_javascript_prettier_use_local_config = 1
 " fixer configurations
 let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
+\   'typescript': ['prettier', 'eslint'],
+\   'typescriptreact': ['prettier', 'eslint'],
 \   'css': ['prettier'],
 \}
 
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+
+augroup spelunker
+  autocmd!
+  " Setting for g:spelunker_check_type = 1:
+  autocmd BufWinEnter,BufWritePost *.js,*.jsx,*.json,*.md,*.ts,*tsx call spelunker#check()
+augroup END
