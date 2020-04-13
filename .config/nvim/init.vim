@@ -22,15 +22,15 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --ts-completer' }
 " Linting engine
 Plug 'w0rp/ale'
 
+" Typescript support
+Plug 'leafgarland/typescript-vim'
+
 " Coffee support
 Plug 'kchmck/vim-coffee-script'
 
-" JS support
+" Javascript support
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
-
-" TS support
-Plug 'HerringtonDarkholme/yats.vim'
 
 " Pug support
 Plug 'digitaltoad/vim-pug'
