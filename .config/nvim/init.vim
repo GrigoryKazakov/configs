@@ -186,8 +186,8 @@ let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
 \   'typescript': ['prettier', 'eslint'],
 \   'typescriptreact': ['prettier', 'eslint'],
-\   'css': ['prettier', 'stylelint'],
-\   'scss': ['prettier', 'stylelint'],
+\   'css': ['stylelint', 'prettier'],
+\   'scss': ['stylelint', 'prettier'],
 \}
 
 let g:user_emmet_settings = {
