@@ -124,6 +124,7 @@ set updatetime=50
 set fillchars+=vert:\|
 set listchars=tab:¦\ ,trail:⋅,extends:❯,precedes:❮
 
+highlight clear SignColumn
 highlight VertSplit ctermbg=NONE ctermfg=NONE
 
 """
@@ -142,6 +143,9 @@ nnoremap <Leader>dt :YcmCompleter GetType<CR>
 nnoremap <Leader>dl :YcmCompleter GoTo<CR>
 nnoremap <Leader>df :YcmCompleter GoToDefinition<CR>
 nnoremap <Leader>dr :YcmCompleter GoToReferences<CR>
+
+" ALE
+nnoremap <Leader>af :ALEFix<CR>
 
 """
 """ PLUGIN CONFIGS
@@ -183,6 +187,7 @@ let g:ale_fixers = {
 \   'typescript': ['prettier', 'eslint'],
 \   'typescriptreact': ['prettier', 'eslint'],
 \   'css': ['prettier'],
+\   'scss': ['prettier'],
 \}
 
 let g:user_emmet_settings = {
