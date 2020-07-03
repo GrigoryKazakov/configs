@@ -1,1 +1,1 @@
-# dotfiles - Grigory Kazakov
+# dotfiles
