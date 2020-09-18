@@ -184,6 +184,7 @@ let g:ale_javascript_prettier_use_local_config = 1
 " fixer configurations
 let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
+\   'json': ['prettier'],
 \   'typescript': ['prettier', 'eslint'],
 \   'typescriptreact': ['prettier', 'eslint'],
 \   'css': ['stylelint', 'prettier'],
