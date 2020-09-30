@@ -4,23 +4,11 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-" Spell checker
-Plug 'kamykn/spelunker.vim'
-
-" Popup for spell checker
-Plug 'kamykn/popup-menu.nvim'
-
 " Markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
 
-" Vue
-Plug 'leafoftree/vim-vue-plugin'
-
 " Completion
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --ts-completer' }
-
-" Linting engine
-Plug 'w0rp/ale'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Typescript support
 Plug 'leafgarland/typescript-vim'
@@ -107,6 +95,8 @@ set softtabstop=2
 set shiftwidth=2
 set expandtab
 
+set updatetime=300
+
 set list
 set nowrap
 set cursorline
@@ -138,18 +128,16 @@ let g:mapleader=" "
 :nmap cp :let @" = expand("%")<CR>
 :nmap cn :let @" = expand("%:t")<CR>
 
-" YouCompleteMeMappings
-nnoremap <Leader>dt :YcmCompleter GetType<CR>
-nnoremap <Leader>dl :YcmCompleter GoTo<CR>
-nnoremap <Leader>df :YcmCompleter GoToDefinition<CR>
-nnoremap <Leader>dr :YcmCompleter GoToReferences<CR>
+nmap <silent> dl <Plug>(coc-definition)
+nmap <silent> dt <Plug>(coc-type-definition)
+nmap <silent> di <Plug>(coc-implementation)
+nmap <silent> dr <Plug>(coc-references)
 
-" ALE
-nnoremap <Leader>af :ALEFix<CR>
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
 
-"""
-""" PLUGIN CONFIGS
-"""
+" Format file
+nnoremap <Leader>af :CocCommand prettier.formatFile<CR>
 
 nnoremap <Leader>N :NERDTreeToggle<CR>
 nnoremap <C-\> :NERDTreeFind<CR>
@@ -159,37 +147,25 @@ nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
 
-" ycm auto-close the preview window
-let g:ycm_autoclose_preview_window_after_completion = 1
-" remove <tab>
-let g:ycm_key_list_select_completion = []
-let g:ycm_semantic_triggers =  {
-  \   'css': ['re!^\s{2}', 're!:\s+'],
-  \   'scss': ['re!^\s{2}', 're!:\s+'],
-  \ }
+"""
+""" PLUGIN CONFIGS
+"""
+
+let g:coc_global_extensions = [
+\ 'coc-eslint', 'coc-prettier',
+\ 'coc-tsserver',
+\ 'coc-css',
+\ 'coc-stylelint',
+\ 'coc-spell-checker',
+\ 'coc-solargraph'
+\ ]
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
-
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 let g:neosnippet#enable_completed_snippet = 1
 let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/UltiSnips"]
-
-let g:ale_sign_error = '✗'
-let g:ale_sign_warning = '⚠'
-
-let g:ale_javascript_prettier_use_local_config = 1
-
-" fixer configurations
-let g:ale_fixers = {
-\   'javascript': ['prettier', 'eslint'],
-\   'json': ['prettier'],
-\   'typescript': ['prettier', 'eslint'],
-\   'typescriptreact': ['prettier', 'eslint'],
-\   'css': ['stylelint', 'prettier'],
-\   'scss': ['stylelint', 'prettier'],
-\}
 
 let g:user_emmet_settings = {
 \  'javascript' : {
@@ -206,8 +182,9 @@ endif
 
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
-augroup spelunker
-  autocmd!
-  " Setting for g:spelunker_check_type = 1:
-  autocmd BufWinEnter,BufWritePost *.js,*.jsx,*.json,*.md,*.ts,*tsx call spelunker#check()
-augroup END
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
