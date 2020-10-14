@@ -29,8 +29,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 #CUSTOM
 exec --no-startup-id setxkbmap -model pc105 -layout us,ru -option grp:toggle
 exec --no-startup-id feh --bg-scale $HOME/wallpaper.jpg
-#exec --no-startup-id compton --backend glx --paint-on-overlay --vsync opengl-swc --xrender-sync-fence &
-exec --no-startup-id compton --backend glx --sw-opti --glx-no-stencil --xrender-sync-fence &
+exec --no-startup-id exec picom -b --backend glx --vsync --xrender-sync-fence --glx-no-rebind-pixmap --use-damage --glx-no-stencil
 
 #BINDING
 bindsym $mod+w exec --no-startup-id chromium
