@@ -95,8 +95,6 @@ set softtabstop=2
 set shiftwidth=2
 set expandtab
 
-set updatetime=300
-
 set list
 set nowrap
 set cursorline
