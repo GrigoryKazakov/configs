@@ -40,6 +40,8 @@ bindsym $mod+c exec --no-startup-id gnome-calculator
 bindsym $mod+p exec --no-startup-id nautilus
 bindsym Print exec --no-startup-id deepin-screenshot
 bindsym $mod+e exec --no-startup-id subl
+bindsym $mod+F12 exec poweroff
+bindsym $mod+F11 exec reboot
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
