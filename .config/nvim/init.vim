@@ -154,6 +154,7 @@ let g:coc_global_extensions = [
 \ 'coc-tsserver',
 \ 'coc-css',
 \ 'coc-stylelint',
+\ 'coc-stylelintplus',
 \ 'coc-spell-checker',
 \ 'coc-solargraph'
 \ ]
