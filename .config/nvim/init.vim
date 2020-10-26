@@ -84,8 +84,8 @@ call plug#end()
 """
 syntax on
 
-set encoding=utf-8
-set fileencoding=utf-8
+set encoding=UTF-8
+set fileencoding=UTF-8
 
 set ttyfast
 set lazyredraw
@@ -123,13 +123,13 @@ highlight VertSplit ctermbg=NONE ctermfg=NONE
 let g:mapleader=" "
 
 " copy paths of file
-:nmap cp :let @" = expand("%")<CR>
-:nmap cn :let @" = expand("%:t")<CR>
+:nmap <Leader>cp :let @" = expand("%")<CR>
+:nmap <Leader>cn :let @" = expand("%:t")<CR>
 
-nmap <silent> dl <Plug>(coc-definition)
-nmap <silent> dt <Plug>(coc-type-definition)
-nmap <silent> di <Plug>(coc-implementation)
-nmap <silent> dr <Plug>(coc-references)
+nmap <silent> gl <Plug>(coc-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
@@ -164,7 +164,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 let g:neosnippet#enable_completed_snippet = 1
-let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/UltiSnips"]
+let g:UltiSnipsSnippetDirectories=[$HOME."/.config/nvim/UltiSnips"]
 
 let g:user_emmet_settings = {
 \  'javascript' : {
