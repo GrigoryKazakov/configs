@@ -4,6 +4,7 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
 
+
 " Markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
 
@@ -30,6 +31,9 @@ Plug 'altercation/vim-colors-solarized'
 
 " CSS color name highlighter
 Plug 'ap/vim-css-color'
+
+" Style-components support
+Plug 'styled-components/vim-styled-components'
 
 " Bufexplorer
 Plug 'jlanzarotta/bufexplorer'
@@ -107,7 +111,7 @@ set background=light
 colorscheme solarized
 
 set history=1000
-set updatetime=50
+set updatetime=300
 
 set fillchars+=vert:\|
 set listchars=tab:¦\ ,trail:⋅,extends:❯,precedes:❮
@@ -150,11 +154,13 @@ omap <leader><tab> <plug>(fzf-maps-o)
 """
 
 let g:coc_global_extensions = [
-\ 'coc-eslint', 'coc-prettier',
+\ 'coc-eslint',
+\ 'coc-prettier',
 \ 'coc-tsserver',
 \ 'coc-css',
 \ 'coc-stylelint',
 \ 'coc-stylelintplus',
+\ 'coc-styled-components',
 \ 'coc-spell-checker',
 \ 'coc-solargraph'
 \ ]
