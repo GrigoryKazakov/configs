@@ -4,6 +4,8 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
 
+" neomake
+Plug 'neomake/neomake'
 
 " Markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
@@ -12,7 +14,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Typescript support
-Plug 'leafgarland/typescript-vim'
+Plug 'HerringtonDarkholme/yats.vim'
 
 " Coffee support
 Plug 'kchmck/vim-coffee-script'
@@ -21,7 +23,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'pangloss/vim-javascript'
 
 " jsx support
-Plug 'peitalin/vim-jsx-typescript'
+Plug 'MaxMEllon/vim-jsx-pretty'
 
 " Pug support
 Plug 'digitaltoad/vim-pug'
@@ -153,6 +155,9 @@ omap <leader><tab> <plug>(fzf-maps-o)
 """ PLUGIN CONFIGS
 """
 
+" Neomake async hooks
+call neomake#configure#automake('w')
+
 let g:coc_global_extensions = [
 \ 'coc-eslint',
 \ 'coc-prettier',
@@ -185,7 +190,7 @@ if (executable('ag'))
     let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 endif
 
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+" autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 " Use <c-space> to trigger completion.
 if has('nvim')
