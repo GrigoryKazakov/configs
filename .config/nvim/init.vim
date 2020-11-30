@@ -4,9 +4,6 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-" neomake
-Plug 'neomake/neomake'
-
 " Markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
 
@@ -100,6 +97,7 @@ set scrolloff=3
 set softtabstop=2
 set shiftwidth=2
 set expandtab
+set autoindent
 
 set list
 set nowrap
@@ -120,6 +118,8 @@ set listchars=tab:¦\ ,trail:⋅,extends:❯,precedes:❮
 
 highlight clear SignColumn
 highlight VertSplit ctermbg=NONE ctermfg=NONE
+
+filetype plugin indent on
 
 """
 """ MAPPINGS
@@ -154,9 +154,6 @@ omap <leader><tab> <plug>(fzf-maps-o)
 """
 """ PLUGIN CONFIGS
 """
-
-" Neomake async hooks
-call neomake#configure#automake('w')
 
 let g:coc_global_extensions = [
 \ 'coc-eslint',
