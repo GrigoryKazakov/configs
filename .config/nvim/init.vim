@@ -10,17 +10,11 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
 " Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Typescript support
-Plug 'HerringtonDarkholme/yats.vim'
-
 " Coffee support
 Plug 'kchmck/vim-coffee-script'
 
 " Javascript support
 Plug 'pangloss/vim-javascript'
-
-" jsx support
-Plug 'MaxMEllon/vim-jsx-pretty'
 
 " Pug support
 Plug 'digitaltoad/vim-pug'
@@ -33,9 +27,6 @@ Plug 'ap/vim-css-color'
 
 " Style-components support
 Plug 'styled-components/vim-styled-components'
-
-" Bufexplorer
-Plug 'jlanzarotta/bufexplorer'
 
 " Ultisnips
 Plug 'SirVer/ultisnips'
@@ -121,6 +112,11 @@ highlight VertSplit ctermbg=NONE ctermfg=NONE
 
 filetype plugin indent on
 
+set nobackup
+set nowritebackup
+set nowb
+set noswapfile
+
 """
 """ MAPPINGS
 """
@@ -150,6 +146,8 @@ nnoremap <leader>\ :Files<CR>
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
+
+nnoremap <leader>b :Buffers<CR>
 
 """
 """ PLUGIN CONFIGS
