@@ -11,13 +11,19 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Coffee support
-Plug 'kchmck/vim-coffee-script'
+" Plug 'kchmck/vim-coffee-script'
+
+" Typescript support
+Plug 'leafgarland/typescript-vim'
 
 " Javascript support
 Plug 'pangloss/vim-javascript'
 
+" Typescript jsx
+Plug 'MaxMEllon/vim-jsx-pretty'
+
 " Pug support
-Plug 'digitaltoad/vim-pug'
+" Plug 'digitaltoad/vim-pug'
 
 " Solarized colorscheme
 Plug 'altercation/vim-colors-solarized'
