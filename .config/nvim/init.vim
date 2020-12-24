@@ -14,7 +14,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'kchmck/vim-coffee-script'
 
 " Typescript support
-Plug 'leafgarland/typescript-vim'
+ Plug 'leafgarland/typescript-vim'
 
 " Javascript support
 Plug 'pangloss/vim-javascript'
@@ -210,3 +210,5 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+autocmd bufnewfile,bufread *.tsx set filetype=typescript.tsx
